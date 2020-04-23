@@ -12,7 +12,7 @@ scalaVersion := "2.12.1"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "gophsic"
+name := "Scalic"
 organization := "Bisoncorps"
 version := "1.0"
 

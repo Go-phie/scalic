@@ -1,4 +1,4 @@
-package com.commands.gophsic
+package com.commands.scalic
 
 import net.bmjames.opts._
 import scalaz.syntax.apply._

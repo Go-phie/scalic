@@ -1,7 +1,7 @@
-package com.utils.gophsic
+package com.utils.scalic
 
-import com.types.gophsic.{ Engine, EngineDoesNotExistException }
-import com.engines.gophsic.RedThreeMPThreeEngine
+import com.types.scalic.{ Engine, EngineDoesNotExistException }
+import com.engines.scalic.RedThreeMPThreeEngine
 
 object EngineFuncs {
 

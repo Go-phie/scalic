@@ -1,8 +1,8 @@
-package com.engines.gophsic
+package com.engines.scalic
 
 import io.lemonlabs.uri.Url
 import net.ruippeixotog.scalascraper.model.Element
-import com.types.gophsic.{ Engine, Music }
+import com.types.scalic.{ Engine, Music }
 
 class RedThreeMPThreeEngine extends Engine (
     Name="Red3Mp3",

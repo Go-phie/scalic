@@ -1,4 +1,4 @@
-package com.types.gophsic
+package com.types.scalic
 
 import io.lemonlabs.uri.Url
 
