@@ -2,6 +2,7 @@ package com.utils.scalic
 
 import com.types.scalic.{ Engine, EngineDoesNotExistException }
 import com.engines.scalic.RedThreeMPThreeEngine
+import com.typesafe.scalalogging.Logger
 
 object EngineFuncs {
 
@@ -20,4 +21,26 @@ object EngineFuncs {
         }
     }
 
+}
+
+// Logging object
+class ScalicLog(verbose: Boolean) {
+   val logger = Logger("SCALIC.LOGGER")
+
+    def log(level: String, message: String): Unit = {
+        if(verbose==true){
+            level match {
+                case "DEBUG" => logger.debug(message)
+                case "INFO" => logger.info(message)
+                case "WARN" => logger.warn(message)
+                case "ERROR" => logger.error(message)
+                case _ => }
+        } else {
+            level match {
+                case "INFO" => logger.info(message)
+                case "ERROR" => logger.error(message)
+                case _ =>
+            }
+        }
+    }
 }

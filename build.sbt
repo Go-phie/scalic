@@ -26,6 +26,7 @@ version := "1.0"
 libraryDependencies ++= Seq(
     "com.twitter" %% "finatra-http" % "20.3.0",
     "ch.qos.logback" % "logback-classic" % "1.1.7",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
     "org.typelevel" %% "cats-core" % "2.0.0",
     "net.bmjames" %% "scala-optparse-applicative" % "0.7",
     "io.lemonlabs" %% "scala-uri" % "2.2.0",
