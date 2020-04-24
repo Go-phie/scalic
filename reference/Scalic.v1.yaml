@@ -138,10 +138,10 @@ paths:
           description: Engine to scrape
         - schema:
             type: string
-          in: header
+          in: query
           name: query
+          description: Search term to use
           required: true
-          description: Search term to help find the song
 components:
   schemas:
     Music:
