@@ -2,6 +2,7 @@ package com.engines.scalic
 
 import scala.util.matching.Regex
 import io.lemonlabs.uri.Url
+import com.utils.scalic.ScalicLog
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
@@ -40,6 +41,7 @@ class RedThreeMPThreeEngine extends Engine (
 
     override def search(query: String): List[Music] = {
         val subMap = Map ("str" -> query)
+        println(browser.get(BaseURL.toString), query)
         val doc = browser.post(SearchURL.toString, subMap)
         val elist = doc >> elementList(getAttributes()(1))
         val musiclist = for { 
