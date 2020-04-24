@@ -30,6 +30,13 @@ With Scala and Sbt installed
 
 ```bash
 git clone https://github.com/Go-phie/scalic.git
+
+# assuming sbt is installed
+sbt stage
+
+#run the pakage
+./target/universal/stage/bin/scalic search "Justin Timberlake Mirrors"
+
 ```
 Or download from Github [Releases](https://github.com/go-phie/scalic/releases)
 
