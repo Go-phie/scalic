@@ -1,8 +1,8 @@
 <p align="center"><img src="assets/logo.gif" alt="scalic" height="100px"></p>
 
 <div align="center">
-  <a href="https://travis-ci.com/go-phie/scalic">
-    <img src="https://travis-ci.com/go-phie/scalic.svg?branch=master" alt="Build Status">
+  <a href="https://travis-ci.com/Go-phie/scalic">
+    <img src="https://travis-ci.com/Go-phie/scalic.svg?branch=master" alt="Build Status">
   </a>
 </div>
 

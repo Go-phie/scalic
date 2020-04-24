@@ -5,7 +5,7 @@ matrix:
       scala: 2.12.1
       install: true
       script:
-        - sbt stage
+        - sbt test
       
       deploy:
         # deploy API

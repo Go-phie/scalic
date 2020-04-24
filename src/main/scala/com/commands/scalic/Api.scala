@@ -64,7 +64,7 @@ class ApiController extends Controller {
 
         <body>
             <div id="content">
-                <iframe width="100%" height="100%" frameborder="0" src="https://stoplight.io/p/docs/gh/Go-phie/scalic/reference/Gophie.v1.yaml?srn=gh/Go-phie/scalic/reference/Gophie.v1.yaml" />
+                <iframe width="100%" height="100%" frameborder="0" src="https://stoplight.io/p/docs/gh/Go-phie/scalic" />
             </div>
         </body>
 
