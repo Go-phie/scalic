@@ -1,12 +1,6 @@
 <p align="center"><img src="assets/logo.gif" alt="scalic" height="100px"></p>
 
 <div align="center">
-  <a href="https://godoc.org/github.com/go-phie/scalic">
-    <img src="https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square" alt="Documentation">
-  </a>
-  <a href="https://goreportcard.com/report/github.com/go-phie/scalic">
-    <img src="https://goreportcard.com/badge/github.com/go-phie/scalic" alt="Go Report Card">
-  </a>
   <a href="https://travis-ci.com/go-phie/scalic">
     <img src="https://travis-ci.com/go-phie/scalic.svg?branch=master" alt="Build Status">
   </a>

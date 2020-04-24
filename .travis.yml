@@ -1,0 +1,18 @@
+matrix:
+  include:
+    - language: scala
+      jdk: openjdk8
+      scala: 2.12.1
+      install: true
+      script:
+        - sbt stage
+      
+      deploy:
+        # deploy API
+        - provider: heroku
+          api_key: $HEROKU_PRODUCTION_API_KEY
+          app: $HEROKU_APP_NAME
+        
+
+notifications:
+  email: false

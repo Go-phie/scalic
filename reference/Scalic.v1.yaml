@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Scalic
+  version: '1.0'
+  description: Music Retrieval API
+  contact:
+    name: Diretnan Domnan
+    url: 'https://diretnan.live'
+    email: diretnandomnan@gmail.com
+  license:
+    name: GNU AFFERO
+    url: 'https://github.com/Go-phie/scalic/blob/master/LICENSE'
+servers:
+  - url: 'https://gophsic.herokuapp.com'
+    description: Diretnan Dangwel Domnan
+paths:
+  /search:
+    get:
+      summary: Search
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Music'
+              examples:
+                Example:
+                  value:
+                    - index: 0
+                      artiste: 'Ryota Yanagisawa, SUPER BEAVER'
+                      title: 'Hello,World'
+                      collection: ' Yorokobinoasuni, 2012'
+                      download_link: 'https://red3mp3.me/stream/9650020/super-beaver-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 1
+                      artiste: Fudakochi
+                      title: '&quot;Hello World&quot;'
+                      collection: ' "Hello World", 2010'
+                      download_link: 'https://red3mp3.me/stream/12656859/fudakochi-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 2
+                      artiste: Meteor Tonight
+                      title: Hello World
+                      collection: ' Hello World, 2012'
+                      download_link: 'https://red3mp3.me/stream/13216357/meteor-tonight-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 3
+                      artiste: World Citizen
+                      title: Hello
+                      collection: ' Ru/001, 2002'
+                      download_link: 'https://red3mp3.me/stream/15058474/world-citizen-hello.mp3'
+                      source: Red3Mp3
+                    - index: 4
+                      artiste: Rahbi
+                      title: Hello World
+                      collection: ' World Mix Goldenchild: Trimester 3 (Hello World), 2015'
+                      download_link: 'https://red3mp3.me/stream/26384059/rahbi-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 5
+                      artiste: Kaiko
+                      title: Hello World
+                      collection: ' The Planet Earth Debut, 2013'
+                      download_link: 'https://red3mp3.me/stream/49749400/kaiko-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 6
+                      artiste: 岸田教団
+                      title: Hello.world
+                      collection: ' 星空ロジック, 2007'
+                      download_link: 'https://red3mp3.me/stream/50134529/an-tian-jiao-tuan-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 7
+                      artiste: Научно-технический Рэп
+                      title: Hello World
+                      collection: ' 0.1, 2019'
+                      download_link: 'https://red3mp3.me/stream/50481283/nauchno-tekhnicheskiy-rep-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 8
+                      artiste: Jackie-O
+                      title: Hello World
+                      collection: ' Anime Collection, Vol. 1, 2019'
+                      download_link: 'https://red3mp3.me/stream/56152492/jackie-o-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 9
+                      artiste: Trump
+                      title: Hello World
+                      collection: ' Original Mix Bed Rock Ep, 2015'
+                      download_link: 'https://red3mp3.me/stream/57132152/trump-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 10
+                      artiste: Bignick
+                      title: Hello World
+                      collection: ' Original Mix Year Mix 2015, 2015'
+                      download_link: 'https://red3mp3.me/stream/57138336/bignick-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 11
+                      artiste: 罗世乙
+                      title: Hello World
+                      collection: ' Hello World, 2019'
+                      download_link: 'https://red3mp3.me/stream/58988007/hello-world-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 12
+                      artiste: deVDem
+                      title: Hello World
+                      collection: ' Hello World, 2019'
+                      download_link: 'https://red3mp3.me/stream/60741228/devdem-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 13
+                      artiste: 邵夷贝
+                      title: Hello World
+                      collection: ' 我们的演唱会, 2019'
+                      download_link: 'https://red3mp3.me/stream/62098538/shao-yi-bei-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 14
+                      artiste: Ernest Tubb
+                      title: Hello World
+                      collection: ' Original Mix In Chronology, 1963-1964, 2019'
+                      download_link: 'https://red3mp3.me/stream/62197367/ernest-tubb-hello-world.mp3'
+                      source: Red3Mp3
+                    - index: 15
+                      artiste: Lullify
+                      title: Hello World
+                      collection: ' Meditating Along The Lake Shore, 2020'
+                      download_link: 'https://red3mp3.me/stream/64114930/meditating-along-the-lake-shore-hello-world.mp3'
+                      source: Red3Mp3
+      operationId: get-search
+      description: Search for a particular song using a search query
+      parameters:
+        - schema:
+            type: string
+            default: red3mp3
+          in: query
+          name: engine
+          required: true
+          description: Engine to scrape
+        - schema:
+            type: string
+          in: header
+          name: query
+          required: true
+          description: Search term to help find the song
+components:
+  schemas:
+    Music:
+      title: Music
+      type: object
+      properties:
+        index:
+          type: integer
+          description: ''
+        artiste:
+          type: string
+          description: Artist of the song
+        title:
+          type: string
+          description: Title of the song
+        collection:
+          type: string
+          description: Album or collection that song belongs to
+        download_link:
+          type: string
+          description: Direct download link to the song
+        source:
+          type: string
+          description: Engine retrieved from
+      x-examples:
+        Example:
+          index: 0
+          artiste: 'Ryota Yanagisawa, SUPER BEAVER'
+          title: 'Hello,World'
+          collection: ' Yorokobinoasuni, 2012'
+          download_link: 'https://red3mp3.me/stream/9650020/super-beaver-hello-world.mp3'
+          source: Red3Mp3
+      description: Music object retrieved from server
