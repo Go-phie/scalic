@@ -6,6 +6,11 @@ matrix:
       install: true
       script:
         - sbt test
+      cache:
+        directories:
+          - $HOME/.cache/coursier
+          - $HOME/.ivy2/cache
+          - $HOME/.sbt
       
       deploy:
         # deploy API
