@@ -24,21 +24,25 @@ object EngineFuncs {
 }
 
 // Logging object
-class ScalicLog(verbose: Boolean) {
-   val logger = Logger("SCALIC.LOGGER")
+object ScalicLog {
+    
+    @transient
+    var verbose: Boolean = false
 
-    def log(level: String, message: String): Unit = {
+    val logger = Logger("SCALIC.LOGGER")
+
+    def log(level: String, message: String, args: Any = ""): Unit = {
         if(verbose==true){
             level match {
-                case "DEBUG" => logger.debug(message)
-                case "INFO" => logger.info(message)
-                case "WARN" => logger.warn(message)
-                case "ERROR" => logger.error(message)
+                case "DEBUG" => logger.debug(message, args)
+                case "INFO" => logger.info(message, args)
+                case "WARN" => logger.warn(message, args)
+                case "ERROR" => logger.error(message, args)
                 case _ => }
         } else {
             level match {
-                case "INFO" => logger.info(message)
-                case "ERROR" => logger.error(message)
+                case "INFO" => logger.info(message, args)
+                case "ERROR" => logger.error(message, args)
                 case _ =>
             }
         }

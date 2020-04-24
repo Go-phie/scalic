@@ -35,8 +35,115 @@ Or download from Github [Releases](https://github.com/go-phie/scalic/releases)
 
 ## Usage
 
-### CLI
+```
+Usage: Scalic [--engine ARG] [--verbose] COMMAND
+  A command line application for searching music
 
+Available options:
+  -h,--help                Show this help text
+  --engine ARG             engine, defaults to red3mp3
+  --verbose                verbose mode flag
+  COMMAND                  
+
+Available commands:
+  search                   
+  api  
+```
+
+Example is running 
+
+```bash
+  Scalic search "born to die"
+
+Artiste: Leftöver Crack
+Title: Born To Die
+Collection:  Mediocre Generica, 2008
+Download link: https://red3mp3.me/stream/2950318/leftover-crack-born-to-die.mp3
+
+
+
+Artiste: Party Hit Kings
+Title: Born to Die
+Collection:  Club Remix Club Remix Hits 2012, Vol. 1, 2012
+Download link: https://red3mp3.me/stream/5435692/party-hit-kings-born-to-die.mp3
+
+
+
+Artiste: Tiamat
+Title: Born to Die
+Collection:  Bonus Track The Scarred People, 2012
+Download link: https://red3mp3.me/stream/7218747/tiamat-born-to-die.mp3
+
+
+
+Artiste: Aston, Aston
+Title: Born to Die
+Collection:  Born to Die, 2012
+Download link: https://red3mp3.me/stream/10248314/aston-born-to-die.mp3
+
+
+
+Artiste: Gangstagrass
+Title: Born to Die
+Collection:  Instrumental American Music, 2016
+Download link: https://red3mp3.me/stream/29952362/gangstagrass-born-to-die.mp3
+
+
+
+Artiste: Sarah Where Is My Tea
+Title: Born to Die
+Collection:  Bonus Track Love & Honor, 2013
+Download link: https://red3mp3.me/stream/35346490/sarah-where-is-my-tea-born-to-die.mp3
+
+
+
+Artiste: Slaughter to Prevail
+Title: Born to Die
+Collection:  Misery Sermon, 2017
+Download link: https://red3mp3.me/stream/36213545/slaughter-to-prevail-born-to-die.mp3
+
+
+
+Artiste: Skyweep
+Title: Born To Die 4 Drums
+Collection:  Original Mix Edits 1 EP, 2013
+Download link: https://red3mp3.me/stream/45068776/skyweep-born-to-die-4-drums.mp3
+
+
+
+Artiste: Bathory
+Title: Born to Die
+Collection:  Remastered In Memory of Quorthon Vol I, 2006
+Download link: https://red3mp3.me/stream/46188383/bathory-born-to-die.mp3
+
+
+
+Artiste: Syd Arthur
+Title: Born to Live Born to Die (Dorothy)
+Collection:  Amorphous Androgynous Remix A Monstrous Psychedelic Bubble, 2014
+Download link: https://red3mp3.me/stream/48812389/syd-arthur-born-to-live-born-to-die-dorothy.mp3
+
+
+
+Artiste: Anonyme
+Title: Born To Die
+Collection:  Collaborations 3, 2019
+Download link: https://red3mp3.me/stream/53867513/anonyme-born-to-die.mp3
+
+
+
+Artiste: Kelly Clarkson
+Title: Born to Die
+Collection:  TROLLS World Tour, 2020
+Download link: https://red3mp3.me/stream/64791054/trolls-world-tour-born-to-die.mp3
+
+
+
+Artiste: besomorph, Coopex, EthanUno
+Title: Born To Die
+Collection:  Born To Die, 2020
+Download link: https://red3mp3.me/stream/64955072/born-to-die-born-to-die.mp3
+```
 
 ## Deployment
 

@@ -43,6 +43,9 @@ libraryDependencies ++= Seq(
 
 resolvers += "bmjames Bintray Repo" at "https://dl.bintray.com/bmjames/maven"
 
+// App Packaging
+enablePlugins(JavaAppPackaging)
+
 // "org.typelevel" %% "cats-core" % "2.0.0"
 
 // You can use Scaladex, an index of all known published Scala libraries. There,

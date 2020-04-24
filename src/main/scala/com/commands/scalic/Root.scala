@@ -2,11 +2,14 @@ package com.commands.scalic
 
 import net.bmjames.opts._
 import scalaz.syntax.apply._
-
+import com.twitter.finatra.http.HttpServer
+import com.types.scalic.{Engine}
 
 case class Options(engine: String, verbose: Boolean = false, command: Command)
 
-trait Command
+trait Command {
+  def run(engine: Engine)
+}
 
 object Parser {
       val parseOpts: Parser[Options] =
