@@ -41,6 +41,13 @@ libraryDependencies ++= Seq(
 // TIP: To find the "dependency" that you need to add to the
 // `libraryDependencies` set, which in the above example looks like this:
 
+// set the main class for packaging the main jar
+mainClass in (Compile, packageBin) := Some("com.commands.scalic.ApiServerMain")
+
+// set the main class for the main 'sbt run' task
+mainClass in (Compile, run) := Some("com.commands.scalic.ApiServerMain")
+
+
 resolvers += "bmjames Bintray Repo" at "https://dl.bintray.com/bmjames/maven"
 
 // App Packaging

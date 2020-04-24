@@ -4,13 +4,20 @@ import com.twitter.finatra.http.Controller
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.routing.HttpRouter
+import com.utils.scalic.EngineFuncs
+import io.lemonlabs.uri.Url
 
-case class Api(port: Int) extends HttpServer with Command {
-    def run(engine: Engine) = {
-        build()
+case class Api(port: Int) extends Command {
+    def run(engine: Engine) {
+        engine + "Fake"
     }
+}
 
-    override val defaultHttpPort: String = s":${port.toString}"
+object ApiServerMain extends ApiServer
+
+class ApiServer extends HttpServer{
+    // override val defaultHttpPort: String = ":" + flag("port", "9000", "Defines a port to use.")
+
     override def configureHttp(router: HttpRouter) {
         router
         .add[ApiController]
@@ -20,8 +27,10 @@ case class Api(port: Int) extends HttpServer with Command {
 
 class ApiController extends Controller {
   get("/search") { request: Request =>
-    // println(request)
-    var engine = request.params.getOrElse("engine", false)
+    var engineName = request.params.getOrElse("engine", false)
     var query = request.params.getOrElse("query", false)
+    var uri = Url.parse(query.toString)
+    val engine = EngineFuncs.getEngineByName(engineName.toString)
+    engine.search(uri.toStringRaw)
   }
 }

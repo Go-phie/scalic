@@ -34,7 +34,7 @@ class RedThreeMPThreeEngine extends Engine (
             Artiste=artist(0), 
             Title=title(0),
             Collection=collection,
-            DownloadLink=downloadLink,
+            DownloadLink=downloadLink.toString,
             Source=Name)
     }
 
