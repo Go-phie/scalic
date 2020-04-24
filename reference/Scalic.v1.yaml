@@ -11,7 +11,7 @@ info:
     name: GNU AFFERO
     url: 'https://github.com/Go-phie/scalic/blob/master/LICENSE'
 servers:
-  - url: 'https://gophsic.herokuapp.com'
+  - url: 'https://scalic.herokuapp.com'
     description: Diretnan Dangwel Domnan
 paths:
   /search:
