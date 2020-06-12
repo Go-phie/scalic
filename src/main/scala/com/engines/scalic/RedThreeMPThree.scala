@@ -27,7 +27,6 @@ class RedThreeMPThreeEngine extends Engine (
         val collection = (elem >> text("div.track-info")).stripPrefix(remove)
         val ArtistandTitle = elem >> attr("data-title")
         val extractionRe = new Regex("""^(.*) — (.*)$""", "Artist", "Title")
-        val ret = (extractionRe findAllMatchIn ArtistandTitle).toList
         var artist = (for (m <- extractionRe findAllMatchIn ArtistandTitle) yield m group "Artist").toList
         var title = (for (m <- extractionRe findAllMatchIn ArtistandTitle) yield m group "Title").toList
         new Music(
@@ -41,13 +40,12 @@ class RedThreeMPThreeEngine extends Engine (
 
     override def search(query: String): List[Music] = {
         val subMap = Map ("str" -> query)
-        println(browser.get(BaseURL.toString), query)
         val doc = browser.post(SearchURL.toString, subMap)
         val elist = doc >> elementList(getAttributes()(1))
         val musiclist = for { 
             (elem, ind) <- elist.zipWithIndex
         } yield parseSingleMovie(ind, elem)
-        musiclist
+        return musiclist
     }
 
 }
