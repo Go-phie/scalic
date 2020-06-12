@@ -19,7 +19,7 @@ abstract class Engine(
     override def toString(): String = {
         s"${Name} Engine at ${BaseURL}"
     }
-    val browser = JsoupBrowser()
+    val browser = new JsoupBrowser("Mozilla")
 
     def getAttributes(): List[String]
 
