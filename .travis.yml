@@ -8,16 +8,16 @@ matrix:
         - sbt universal:packageBin
         - mkdir tempreleases
         - mkdir releases
-        - mv target/universal/stage/bin/main tempreleases/Scalic
+        - mv target/universal/scripts/bin/main tempreleases/Scalic
         - chmod +x tempreleases/Scalic
-        - tar -zcvf releases/Scalic_Linux.tar.gz tempreleases.Scalic
-        - mv target/universal/stage/bin/main.bat tempreleases/Scalic.bat
+        - tar -zcvf releases/Scalic_Linux.tar.gz tempreleases/Scalic
+        - mv target/universal/scripts/bin/main.bat tempreleases/Scalic.bat
         - zip releases/Scalic_Windows.zip tempreleases/Scalic.bat
-        - sha256sum releases/Scalic_Linux.tar.gz > Scalic_{$TRAVIS_TAG}_checksums.txt
-        - sha256sum releases/Scalic_Windows.zip >> Scalic_{$TRAVIS_TAG}_checksums.txt
+        - cd releases
+        - sha256sum Scalic_Linux.tar.gz > Scalic_${TRAVIS_TAG}_checksums.txt
+        - sha256sum Scalic_Windows.zip >> Scalic_${TRAVIS_TAG}_checksums.txt
+        - cat Scalic_${TRAVIS_TAG}_checksums.txt
         - cd ..
-        - tar -zcvf scalic/releases/Source\ Code.tar.gz scalic
-        - zip -r scalic/releases/Source\ Code.zip scalic
       cache:
         directories:
           - $HOME/.cache/coursier
@@ -25,17 +25,18 @@ matrix:
           - $HOME/.sbt
       
       deploy:
-        # deploy API
-        - provider: heroku
-          api_key: $HEROKU_PRODUCTION_API_KEY
-          app: $HEROKU_APP_NAME
-        
+        # deploy CLI
         - provider: releases
           api_key: $GITHUB_TOKEN
-          file: scalic/releases/*
+          file_glob: true
+          file: releases/*
           skip_cleanup: true
           on:
             tags: true
+        # deploy web API
+        - provider: heroku
+          api_key: $HEROKU_PRODUCTION_API_KEY
+          app: $HEROKU_APP_NAME
 
 notifications:
   email: false

@@ -14,6 +14,7 @@ scalaVersion := "2.12.1"
 
 name := "Scalic"
 organization := "Bisoncorps"
+maintainer := "deven96@bisoncorps.org"
 version := "1.0"
 
 // Note, it's not required for you to define these three settings. These are
