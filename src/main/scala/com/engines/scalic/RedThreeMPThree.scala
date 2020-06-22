@@ -3,12 +3,15 @@ package com.engines.scalic
 import scala.util.matching.Regex
 import io.lemonlabs.uri.Url
 import com.utils.scalic.ScalicLog
+import org.jsoup.Jsoup
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
 import net.ruippeixotog.scalascraper.model._
 import net.ruippeixotog.scalascraper.model.Element
 import net.ruippeixotog.scalascraper.model.Document
+import net.ruippeixotog.scalascraper.browser.JsoupBrowser._
+import scalaj.http._
 import com.types.scalic.{ Engine, Music }
 
 class RedThreeMPThreeEngine extends Engine (
@@ -39,9 +42,22 @@ class RedThreeMPThreeEngine extends Engine (
     }
 
     override def search(query: String): List[Music] = {
-        val subMap = Map ("str" -> query)
-        val doc = browser.post(SearchURL.toString, subMap)
-        val elist = doc >> elementList(getAttributes()(1))
+      val subMap = Seq("str" -> query)
+      var result = Http(SearchURL.toString).postForm(subMap)
+        .header("Content-Type", "application/json")
+        .header("Charset", "UTF-8")
+        .option(HttpOptions.readTimeout(10000)).asString
+        var doc = JsoupDocument(Jsoup.parse(result.body))
+        val newLink = doc >?> element("h2 a") match {
+          case None => ""
+          case Some(s: Element) => s.attr("href")
+        }
+        result = Http(BaseURL.toString + newLink)
+          .header("Content-Type", "application/json")
+          .header("Charset", "UTF-8")
+          .option(HttpOptions.readTimeout(10000)).asString
+          doc = JsoupDocument(Jsoup.parse(result.body))
+          val elist = doc >> elementList(getAttributes()(1))
         val musiclist = for { 
             (elem, ind) <- elist.zipWithIndex
         } yield parseSingleMovie(ind, elem)

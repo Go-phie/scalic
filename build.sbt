@@ -31,7 +31,8 @@ libraryDependencies ++= Seq(
     "org.typelevel" %% "cats-core" % "2.0.0",
     "net.bmjames" %% "scala-optparse-applicative" % "0.7",
     "io.lemonlabs" %% "scala-uri" % "2.2.0",
-    "net.ruippeixotog" %% "scala-scraper" % "2.2.0"
+    "net.ruippeixotog" %% "scala-scraper" % "2.2.0",
+    "org.scalaj" %% "scalaj-http" % "2.4.2"
 )
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the cats dependency to the set of dependencies that sbt will go
