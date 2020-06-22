@@ -17,7 +17,10 @@ matrix:
         - sha256sum Scalic_Linux.tar.gz > Scalic_${TRAVIS_TAG}_checksums.txt
         - sha256sum Scalic_Windows.zip >> Scalic_${TRAVIS_TAG}_checksums.txt
         - cat Scalic_${TRAVIS_TAG}_checksums.txt
-        - cd ..
+        - cd ../..
+        - tar --exclude='scalic/releases' --exclude='scalic/tempreleases' --exclude='scalic/project' --exclude='scalic/.git' --exclude='scalic/target' -zcvf scalic/releases/Source\ Code.tar.gz scalic
+        - zip -r scalic/releases/Source\ Code.zip scalic -x scalic/.git scalic/target/ scalic/project scalic/tempreleases scalic/releases
+        - cd scalic
       cache:
         directories:
           - $HOME/.cache/coursier
